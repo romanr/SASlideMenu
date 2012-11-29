@@ -80,6 +80,12 @@
 	selectedContent.view.layer.shadowColor = [[UIColor blackColor] CGColor];
 	
 	selectedContent.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:selectedContent.view.bounds].CGPath;
+	
+	
+	if (selectedContent.view.frame.origin.x>0) {
+		[self doSlideIn:nil];
+		return;
+	}
     [UIView animateWithDuration:kSlideInInterval
                           delay:0.0
                         options:UIViewAnimationCurveEaseInOut

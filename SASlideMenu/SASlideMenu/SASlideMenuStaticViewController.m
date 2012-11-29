@@ -61,15 +61,15 @@
 }
 
 -(void) completeSlideIn:(UINavigationController*) controller{
-    [self.shield removeFromSuperview];
-    [controller.visibleViewController.view addSubview:self.shield];
-    self.shield.frame = controller.visibleViewController.view.bounds;
+//    [self.shield removeFromSuperview];
+//    [controller.visibleViewController.view addSubview:self.shield];
+//    self.shield.frame = controller.visibleViewController.view.bounds;
 }
 
 -(void) completeSlideToSide:(UINavigationController*) controller{
-    [self.shield removeFromSuperview];
-    [controller.view addSubview:self.shield];
-    self.shield.frame = controller.view.bounds;
+//    [self.shield removeFromSuperview];
+//    [controller.view addSubview:self.shield];
+//    self.shield.frame = controller.view.bounds;
 }
 
 -(void) doSlideToSide{
@@ -216,10 +216,11 @@
     self.shield = [[UIView alloc] initWithFrame:CGRectZero];
     
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panItem:)];
+	panGesture.cancelsTouchesInView=NO;
     [panGesture setMaximumNumberOfTouches:2];
     [panGesture setDelegate:self];
     [self.shield addGestureRecognizer:panGesture];
-    
+	
     self.tableView.delegate = self;
 }
 @end
